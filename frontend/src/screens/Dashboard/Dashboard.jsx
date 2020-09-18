@@ -13,7 +13,7 @@ const Dashboard = () => {
     const onFileDrop = (file) => {
         const uploadFile = new FormData();
         uploadFile.append('file', file);
-        toast("Uploading...");
+        toast("Uploading... ( It will take around 30 seconds)");
         axios({
             method: 'post',
             url: 'http://localhost:8080/api/import',

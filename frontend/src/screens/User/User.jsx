@@ -69,16 +69,21 @@ const User = ({match}) => {
                 <Line type="monotone" dataKey="duration" stroke="#82ca9d" />
             </LineChart>
           </div>
-          <div className="table">
-              {
-                  last5Calls?.map(call => {
-                      return (
-                          <div key={call.id}>
-                              {call.client}
-                          </div>
-                      )
-                  })
-              }
+          <div style={{flexDirection:"row", width:"45%"}}>
+            <div>
+              Last five calls
+            </div>
+            <div className="table">
+                {
+                    last5Calls?.map(call => {
+                        return (
+                            <div key={call.id}>
+                                {call.client}
+                            </div>
+                        )
+                    })
+                }
+            </div>
           </div>
       </div>
       <ToastContainer />
