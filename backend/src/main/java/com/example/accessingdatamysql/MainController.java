@@ -1,5 +1,6 @@
-package com.example.accessingdatamysql.controllers;
+package com.example.accessingdatamysql;
 
+import com.example.accessingdatamysql.controllers.ResponseObjectForAverageUserScore;
 import com.example.accessingdatamysql.repositories.CallTRepository;
 import com.example.accessingdatamysql.models.CallT;
 import org.apache.poi.ss.usermodel.Row;
