@@ -1,11 +1,12 @@
-package com.example.accessingdatamysql;
+package com.example.accessingdatamysql.controllers;
 
+import com.example.accessingdatamysql.repositories.CallTRepository;
+import com.example.accessingdatamysql.models.CallT;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -15,7 +16,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 @Controller    // This means that this class is a Controller
 @RequestMapping(path = "/api") // This means URL's start with /demo (after Application path)
 public class MainController {
@@ -78,12 +79,20 @@ public class MainController {
             callT.setDuration((int) row.getCell(4).getNumericCellValue());
             callT.setTypeOfCall(row.getCell(5).getStringCellValue());
             callT.setExternalCallScore((int) row.getCell(6).getNumericCellValue());
-            callT.setDate(row.getCell(3).getLocalDateTimeCellValue());
+            callT.setDate(row.getCell(3).getLocalDateTimeCellValue().plusMonths(5).plusDays(20));
 
             callList.add(callT);
         }
 
         callTRepository.saveAll(callList);
+        return true;
+    }
+
+    @GetMapping(path = "/normalizedates")
+    public @ResponseBody
+    boolean updateDatabaseDates(){
+
+
         return true;
     }
 }

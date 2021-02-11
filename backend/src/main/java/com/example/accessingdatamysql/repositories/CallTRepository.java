@@ -1,9 +1,8 @@
-package com.example.accessingdatamysql;
+package com.example.accessingdatamysql.repositories;
 
+import com.example.accessingdatamysql.models.CallT;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-
-import com.example.accessingdatamysql.User;
 
 import java.time.LocalDateTime;
 import java.util.List;
